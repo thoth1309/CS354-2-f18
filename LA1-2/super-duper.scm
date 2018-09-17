@@ -1,9 +1,9 @@
 ; Scheme super-duper program 
 
-(define (sum seq)
-  (if (null? seq)
+(define (super-duper '(x y))
+  (if (null? '(x y)
       0
       (+ (car seq) (sum (cdr seq)))))
 
-(display (sum '(5 6 1 8 3 7)))
+(display (super-duper '(x y)))
 (display "\n")
