@@ -9,9 +9,18 @@
 ;*******************************************************************************
 
 (define (copy element count)
-	(cond
-	  	((> count 1)
-			(cons (super-duper (car element) (+ count -1)) (super-duper (cdr element) (+ count -1)))
+    (cond
+;		((null? element)
+;			'()	
+;		)
+		((list? element)
+			(super-duper element count)
+		)
+    	((> count 0)
+			(cons element (copy element (+ count -1))) 
+		)
+		(else
+			'()
 		)
 	)
 )
@@ -24,8 +33,14 @@
 		((not (list? list))
 			(cons list '())
 		)
+		((null? list)
+			(cons list '())
+		)
+		((null? (cdr list))
+			(cons (copy (car list) count) '())
+		) 
 		(else
-			(copy list count)
+			(cons (copy (car list) count) (super-duper (cdr list) count))
 		)
 	)
 )
