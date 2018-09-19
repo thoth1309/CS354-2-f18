@@ -8,13 +8,24 @@
 ; Author: Jason Egbert
 ;*******************************************************************************
 
+(define (iterate element count iteration)
+   	(cond
+		((> iteration 0)
+	  		(cons (super-duper element count) (iterate element count (+ iteration -1)))
+		)
+		(else
+		  	'()
+		)
+	)
+)
+
 (define (copy element count)
     (cond
-;		((null? element)
-;			'()	
-;		)
 		((list? element)
-			(super-duper element count)
+;		 	(if (> count 0)
+;				(cons (super-duper element count) (super-duper element count))
+				(iterate element count count)
+;			)
 		)
     	((> count 0)
 			(cons element (copy element (+ count -1))) 
