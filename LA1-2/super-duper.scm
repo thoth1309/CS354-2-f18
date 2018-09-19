@@ -9,26 +9,32 @@
 ;*******************************************************************************
 
 (define (replicate element count)
+	(if (null? element)
+		(list '())
+	)
+
 	(if (list? element)
 		(super-duper element count)
-	
-		(
-  			(if (< count 2)
-				(cons element '())
-			)
-			(if (> count 1)
-				(cons element (replicate element (+ count -1)))
-			)
-		)
+	)	
+
+	(if (> count 1)
+		(list (cons element (replicate element (+ count -1))))
+	)
+		
+  	(if (< count 2)
+		(cons element '())
 	)
 )
 
 (define (super-duper source count)
-	(if (null? (car source)) ; source is empty
-		(list '())
-
-		(list (replicate (car source) count) (super-duper (cdr source) count))
+	(if (null? source)
+	(list '())
+	(list (replicate (car source) count) (super-duper (cdr source) count))
 	)
 )
 
-(display (replicate '1 2))
+(display (super-duper '() 0))
+(display "\n")
+
+(display (super-duper '(1) 2))
+(display "\n")
