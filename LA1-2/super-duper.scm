@@ -27,14 +27,69 @@
 )
 
 (define (super-duper source count)
+	(if (null? (car source)) ; source is empty
+		(list '())
+
+		(list (replicate (car source) count) (super-duper (cdr source) count))
+(define (super-duper list count)
+	(cond
+		((< count 2)
+			(cons list '())
+		)
+		((not (list? list))
+			(cons list '())
+		)
+		((null? list)
+			(cons list '())
+		)
+		((null? (cdr list))
+			(cons (copy (car list) count) '())
+		) 
+		(else
+			(cons (copy (car list) count) (super-duper (cdr list) count))
+		)
+(define (super-duper source count)
 	(if (null? source)
 	(list '())
 	(list (replicate (car source) count) (super-duper (cdr source) count))
 	)
 )
 
+(display (replicate '1 2))
+(display "(super-duper 123 1) = ")
+(display (super-duper 123 1))
 (display (super-duper '() 0))
 (display "\n")
 
+(display "(super-duper 123 2) = ")
+(display (super-duper 123 2))
+(display "\n")
+
+(display "(super-duper '() 1) = ")
+(display (super-duper '() 1))
+(display "\n")
+
+(display "(super-duper '() 2) = ")
+(display (super-duper '() 2))
+(display "\n")
+
+(display "(super-duper '(x) 1) = ")
+(display (super-duper '(x) 1))
+(display "\n")
+
+(display "(super-duper '(x) 2) = ")
+(display (super-duper '(x) 2))
+(display "\n")
+
+(display "(super-duper '(x y) 1) = ")
+(display (super-duper '(x y) 1))
+(display "\n")
+
+(display "(super-duper '(x y) 2) = ")
+(display (super-duper '(x y) 2))
+(display "\n")
+
+(display "(super-duper '((a b) y) 3) = ")
+(display (super-duper '((a b) y) 3))
 (display (super-duper '(1) 2))
 (display "\n")
