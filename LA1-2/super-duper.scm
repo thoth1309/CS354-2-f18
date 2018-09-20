@@ -22,10 +22,7 @@
 (define (copy element count)
     (cond
 		((list? element)
-;		 	(if (> count 0)
-;				(cons (super-duper element count) (super-duper element count))
 				(iterate element count count)
-;			)
 		)
     	((> count 0)
 			(cons element (copy element (+ count -1))) 
@@ -36,25 +33,31 @@
 	)
 )
 
-(define (super-duper list count)
+(define (super-duper source count)
 	(cond
 		((< count 2)
-			(cons list '())
+			(cons source '())
 		)
-		((not (list? list))
-			(cons list '())
+		((not (list? source))
+			(cons source '())
 		)
-		((null? list)
-			(cons list '())
+		((null? source)
+			(cons source '())
 		)
-		((null? (cdr list))
-			(cons (copy (car list) count) '())
+		((null? (cdr source))
+			(cons (copy (car source) count) '())
 		) 
 		(else
-			(cons (copy (car list) count) (super-duper (cdr list) count))
+			(cons (copy (car source) count) (super-duper (cdr source) count))
 		)
 	)
 )
+
+
+
+; below are tests for the program super-duper. To run them, simply remove the
+; comment blocks above (#|) and below (|#) to run the tests and see the results
+
 
 (display "(super-duper 123 1) = ")
 (display (super-duper 123 1))
@@ -91,3 +94,12 @@
 (display "(super-duper '((a b) y) 3) = ")
 (display (super-duper '((a b) y) 3))
 (display "\n")
+
+(display "(super-duper '(y (a b)) 3) = ")
+(display (super-duper '(y (a b)) 3))
+(display "\n")
+
+(display "(super-duper '((a b c) (x y z)) 3) = ")
+(display (super-duper '((a b c) (x y z)) 3))
+(display "\n")
+
