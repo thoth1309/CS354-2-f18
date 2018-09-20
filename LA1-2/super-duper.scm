@@ -8,57 +8,59 @@
 ; Author: Jason Egbert
 ;*******************************************************************************
 
-(define (replicate element count)
-	(if (null? element)
-		(list '())
+(define (iterate element count iteration)
+   	(cond
+		((> iteration 0)
+	  		(cons (super-duper element count) (iterate element count (+ iteration -1)))
+		)
+		(else
+		  	'()
+		)
 	)
+)
 
-	(if (list? element)
-		(super-duper element count)
-	)	
-
-	(if (> count 1)
-		(list (cons element (replicate element (+ count -1))))
-	)
-		
-  	(if (< count 2)
-		(cons element '())
+(define (copy element count)
+    (cond
+		((list? element)
+				(iterate element count count)
+		)
+    	((> count 0)
+			(cons element (copy element (+ count -1))) 
+		)
+		(else
+			'()
+		)
 	)
 )
 
 (define (super-duper source count)
-	(if (null? (car source)) ; source is empty
-		(list '())
-
-		(list (replicate (car source) count) (super-duper (cdr source) count))
-(define (super-duper list count)
 	(cond
 		((< count 2)
-			(cons list '())
+			(cons source '())
 		)
-		((not (list? list))
-			(cons list '())
+		((not (list? source))
+			(cons source '())
 		)
-		((null? list)
-			(cons list '())
+		((null? source)
+			(cons source '())
 		)
-		((null? (cdr list))
-			(cons (copy (car list) count) '())
+		((null? (cdr source))
+			(cons (copy (car source) count) '())
 		) 
 		(else
-			(cons (copy (car list) count) (super-duper (cdr list) count))
+			(cons (copy (car source) count) (super-duper (cdr source) count))
 		)
-(define (super-duper source count)
-	(if (null? source)
-	(list '())
-	(list (replicate (car source) count) (super-duper (cdr source) count))
 	)
 )
 
-(display (replicate '1 2))
+
+
+; below are tests for the program super-duper. To run them, simply remove the
+; comment blocks above (#|) and below (|#) to run the tests and see the results
+
+
 (display "(super-duper 123 1) = ")
 (display (super-duper 123 1))
-(display (super-duper '() 0))
 (display "\n")
 
 (display "(super-duper 123 2) = ")
@@ -91,5 +93,13 @@
 
 (display "(super-duper '((a b) y) 3) = ")
 (display (super-duper '((a b) y) 3))
-(display (super-duper '(1) 2))
 (display "\n")
+
+(display "(super-duper '(y (a b)) 3) = ")
+(display (super-duper '(y (a b)) 3))
+(display "\n")
+
+(display "(super-duper '((a b c) (x y z)) 3) = ")
+(display (super-duper '((a b c) (x y z)) 3))
+(display "\n")
+

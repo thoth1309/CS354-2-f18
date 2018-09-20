@@ -1,0 +1,22 @@
+LANGUAGE ASSIGNMENT 1 - SCHEME
+********************************************************************************
+* Author: Jason Egbert
+* Class: CS354 Section 2
+
+OVERVIEW
+********************************************************************************
+Language Assignment 1: Scheme is a simple program designed to take an atom, or a
+list, and replicate all of the elements a user-specified number of times.
+
+COMPILING AND USING
+********************************************************************************
+To run this code, simply type the file name (super-duper.scm) into the bash
+command line. The program does require additinal input to produce output. As it
+stands it is simply a function waiting for arguments to be provided either by a
+call from within the source file (e.g. the test code), or by an associated file
+from which the super-duper function is visible.
+
+TESTING
+********************************************************************************
+All tests conducted for LA1 are contained in a block comment within the source
+code.
