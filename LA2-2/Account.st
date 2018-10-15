@@ -12,16 +12,15 @@ Object subclass: Account [
 		]
 	]
 
-
+    "(accrue: rate)"
 
 	"Initialize variables"
 	init [
-        number:=0
-		customer:=null
+        number:=0.
 		balance:=0.00
 	]
 
-	balance: [
+	balance [
         ^balance
 	]
 
@@ -34,7 +33,7 @@ Object subclass: Account [
 	]
 
 	toString [
-	    |retVal|
-        retVal:=number+":"+customer+":"+balance
+	    |retVal| retVal:=(asString: number), ":", customer, ":", (asString:
+		balance)
 	]
 ]
