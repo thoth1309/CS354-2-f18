@@ -13,7 +13,7 @@ Object subclass: SavingsAccount [
         interest:=0.00
 	]
 
-	SavingsAccount: number customer balance [
+	SavingsAccount: number customer: customer balance: balance [
         ^number:=number.
 		^customer:=customer.
 		^balance:=balance

@@ -10,11 +10,11 @@ Object subclass: Customer [
 	]
 
 	init [
-	    ^name:=''
+	    name:=''
 	]
 
-	customer: name [
-        ^name:=name
+	customer: custName [
+        name:=custName
 	]
 
 	toString [

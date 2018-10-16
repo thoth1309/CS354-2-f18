@@ -23,7 +23,7 @@ Object subclass: Bank [
 	]
 
 	toString [
-        |r| r:=''
+        |r| r:=''.
 		accounts do: [ :account | r:=r, (toString account), '\n' ].
 		r
 	]

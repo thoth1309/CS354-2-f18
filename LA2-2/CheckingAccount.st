@@ -11,10 +11,10 @@ Object subclass: CheckingAccount [
 	init [
 	]
 
-	CheckingAccount: number customer balance [
+	CheckingAccount: number customer: customer balance: balance [
         ^number:=number.
 		^customer:=customer.
-		^balance:=balance.
+		^balance:=balance
 	]
 
 	accrue: rate [
