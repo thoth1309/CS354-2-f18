@@ -3,9 +3,9 @@
 Account subclass: SavingsAccount [
     |interest|
 
-	SavingsAccount class: number customer: customer balance: balance [
+	SavingsAccount class [
         savingsAccount: num customer: cust balance: bal [
-            ^super new init
+            ^super new init: num customer: cust balance: bal
 		]
 	]
 
@@ -20,7 +20,7 @@ Account subclass: SavingsAccount [
 	]"
 
 	accrue: rate [
-        ^balance+=balance*rate.
-		^interest+=balance*rate
+        balance+=balance*rate.
+		interest+=balance*rate
 	]
 ]

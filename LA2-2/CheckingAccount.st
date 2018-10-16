@@ -4,7 +4,7 @@ Account subclass: CheckingAccount [
     
 	CheckingAccount class [
         CheckingAccound: num customer: cust balance: bal [
-            ^super new init
+            ^super new init: num customer: cust balance: bal
 		]
 	]
 

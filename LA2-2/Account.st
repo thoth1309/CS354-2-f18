@@ -8,6 +8,11 @@ Object subclass: Account [
 	"Constructor fot the Account class"
 	Account class [
 	    new[
+"		    init: num customr: cust balance: bal [ 
+                number:=num.
+				customer:=cust.
+				balance:=bal
+			]"
 		    ^super new init
 		]
 	]
@@ -15,10 +20,10 @@ Object subclass: Account [
     "(accrue: rate)"
 
 	"Initialize variables"
-	init [
+	"init [
         number:=0.
 		balance:=0.00
-	]
+	]"
 
 	balance [
         ^balance

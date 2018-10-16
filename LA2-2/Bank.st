@@ -19,7 +19,7 @@ Object subclass: Bank [
 	]
 
 	accrue: rate [
-        accounts do: [ :account | (accrue: rate) ]
+        accounts do: [ :account | accrue: rate ]
 	]
 
 	toString [
