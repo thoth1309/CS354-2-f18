@@ -5,7 +5,7 @@ Account subclass: SavingsAccount [
 
 	SavingsAccount class [
         savingsAccount: num customer: cust balance: bal [
-            ^super new init: num customer: cust balance: bal
+            ^super new account: num customer: cust balance: bal
 		]
 	]
 

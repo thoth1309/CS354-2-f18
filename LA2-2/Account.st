@@ -8,12 +8,12 @@ Object subclass: Account [
 	"Constructor fot the Account class"
 	Account class [
 	    new[
-		   "init: num customr: cust balance: bal [ 
+		   account: num customer: cust balance: bal [ 
                 number:=num.
 				customer:=cust.
 				balance:=bal
 			]"
-		    ^super new init
+		    ^super new init"
 		]
 	]
 
@@ -41,10 +41,8 @@ Object subclass: Account [
 
 	asString [
 	    |retVal| 
-		retVal:=((asString: number), ':'
-		retVal:=retVal, customer
-		retVal:=retVAl, ':'
-		retVal:=retVal, (asString: balance))
+		retVal:=((number asString), ' : ', (customer asString), ' : ', (balance
+		asString)).
 		^retVal
 	]
 ]

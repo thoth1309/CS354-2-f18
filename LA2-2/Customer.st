@@ -5,7 +5,7 @@ Object subclass: Customer [
 
 	Customer class [
         customer: custName [
-		    name:=custName.
+		    name:=custName
             "^super new init"
 		]
 	]

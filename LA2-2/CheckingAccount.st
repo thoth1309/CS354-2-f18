@@ -3,8 +3,8 @@
 Account subclass: CheckingAccount [
     
 	CheckingAccount class [
-        CheckingAccound: num customer: cust balance: bal [
-            ^super new init: num customer: cust balance: bal
+        checkingAccount: num customer: cust balance: bal [
+            ^super new account: num customer: cust balance: bal
 		]
 	]
 
