@@ -39,7 +39,7 @@ Object subclass: Account [
 	    ^balance
 	]
 
-	asString [
+	toString [
 	    |retVal| 
 		retVal:=((asString: number), ':'
 		retVal:=retVal, customer

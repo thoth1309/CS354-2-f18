@@ -11,27 +11,27 @@ Object subclass: Bank [
 	]
 
 	init [
-        accounts:=''
+            accounts:=''
 	]
 
 	add: account [
-        ^accounts:=accounts+account
+            ^accounts:=accounts+account
 	]
 
 	accrue: rate [
-        accounts do: [ :account | accrue: rate ]
+            accounts do: [ :account | account: accrue: rate ]
 	]
 
-	toString [
+	asString [
         |r| r:=''.
-		accounts do: [ :account | r:=r, (toString account), '\n' ].
+		accounts do: [ :account | r:=r, (asString account), '\n' ].
 		^r
 	]
 ]
 
-	|bank| bank:=Bank new.
-	|customer| customer:=Customer:'Ann' new.
-	add: (CheckingAccount '01001' customer 100.00) new.
-	add: (SavingsAccount '01002' customer 200.00) new.
-	accrue: 0.02.
-	toString printN1
+|bank| bank:=Bank new.
+|customer| customer:=Customer:'Ann' new.
+add: (CheckingAccount '01001' customer 100.00) new.
+add: (SavingsAccount '01002' customer 200.00) new.
+accrue: 0.02.
+asString printN1
