@@ -1,15 +1,15 @@
 "Savings Account Class"
 
-Object subclass: SavingsAccount [
+Account subclass: SavingsAccount [
     |interest|
 
-	SavingsAccount class [
-        new [
+	SavingsAccount class: number customer: customer balance: balance [
+        savingsAccount: num customer: cust balance: bal [
             ^super new init
 		]
 	]
 
-	init [
+"	init [
         interest:=0.00
 	]
 
@@ -17,7 +17,7 @@ Object subclass: SavingsAccount [
         ^number:=number.
 		^customer:=customer.
 		^balance:=balance
-	]
+	]"
 
 	accrue: rate [
         ^balance+=balance*rate.

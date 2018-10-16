@@ -25,15 +25,21 @@ Object subclass: Account [
 	]
 
 	deposit: amount [
-        ^balance=balance+amount
+        balance=balance+amount.
+		^balance
 	]
 
 	withdraw: amount [
-        ^balance:=balance-amount
+        balance:=balance-amount.
+	    ^balance
 	]
 
 	toString [
 	    |retVal| 
-		retVal:=((asString: number), ':', customer, ':', (asString: balance))
+		retVal:=((asString: number), ':'
+		retVal:=retVal, customer
+		retVal:=retVAl, ':'
+		retVal:=retVal, (asString: balance))
+		^retVal
 	]
 ]

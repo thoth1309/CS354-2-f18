@@ -15,17 +15,17 @@ Object subclass: Bank [
 	]
 
 	add: account [
-        accounts:=accounts+account
+        ^accounts:=accounts+account
 	]
 
 	accrue: rate [
-        accounts do: [ :account | (accrue: rate) ].
+        accounts do: [ :account | (accrue: rate) ]
 	]
 
 	toString [
         |r| r:=''.
 		accounts do: [ :account | r:=r, (toString account), '\n' ].
-		r
+		^r
 	]
 ]
 

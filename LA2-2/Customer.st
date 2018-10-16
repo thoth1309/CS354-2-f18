@@ -4,18 +4,19 @@ Object subclass: Customer [
     |name|
 
 	Customer class [
-        new [
-            ^super new init
+        customer: custName [
+		    name:=custName.
+            "^super new init"
 		]
 	]
 
-	init [
+"	init [
 	    name:=''
 	]
 
 	customer: custName [
         name:=custName
-	]
+	]"
 
 	toString [
         name
