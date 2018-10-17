@@ -24,7 +24,8 @@ Account subclass: SavingsAccount [
 	]
 ]
 
-"testing"
+"unit testing for Savings Account"
+"
 |acount| account:= SavingsAccount new:'01002' customer:'anne' balance: 200.0.
 (account asString) printNl.
 account accrue: 0.2.
@@ -35,3 +36,4 @@ account accrue: 0.2.
 (account asString) printNl.
 account accrue: 0.3.
 (account asString) printNl
+"

@@ -17,7 +17,8 @@ Account subclass: CheckingAccount [
 
 	accrue: rate []
 ]
-
+"unit tests for Checking Account"
+"
 |account| account:=CheckingAccount new:'01001' customer: 'ann' balance:100.00.
 (account asString) printNl.
 account accrue: 0.2.
@@ -28,3 +29,4 @@ account accrue: 0.2.
 (account2 asString) printNl.
 account2 accrue: 0.3.
 (account2 asString) printNl
+"

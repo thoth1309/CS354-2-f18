@@ -17,7 +17,7 @@ Object subclass: Bank [
 
 	init [
           index:=1.
-		  accounts:= Array new: 5
+		  accounts:= Array new: 2
 	]
 
 	add: account [
@@ -31,21 +31,27 @@ Object subclass: Bank [
 
 	asString [
         |r| r:=''.
-		accounts do: [ :account | r:=r, (account asString account), '\n' ].
+		accounts do: [ :account | r:=r, (account asString), '\n' ].
 		^r
 	]
 ]
 
 |bank| bank:=Bank new.
 bank init.
-|customer| customer:=Customer newCustomer: 'Ann'.
-|checking| checking:=CheckingAccount new.
-checking account: '01001' customer: customer balance: 100.00.
-"(checking newChecking:'01001' customer: customer balance: 100.00)."
+|customer| customer:=Customer new: 'Ann'.
+"testing"
+"(customer asString) printNl."
+|checking| checking:=CheckingAccount new:'01001' customer: customer balance: 100.00.
+"testing"
+"(checking asString) printNl."
 bank add: checking.
-|savings| savings:=SavingsAccount new.
-savings account: '01002' customer: customer balance: 200.00.
-"(savings newSavings:'01002' customer: customer balance: 200.00)."
+"testing"
+"(bank asString) printNl."
+|savings| savings:=SavingsAccount new: '01002' customer: customer balance: 200.00.
+"testing"
+"(savings asString) printNl."
 bank add: savings.
+"testing"
+"(bank asString) printNl."
 bank accrue: 0.02.
-asString printNl
+bank asString printNl
