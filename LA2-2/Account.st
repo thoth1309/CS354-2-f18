@@ -7,42 +7,18 @@ Object subclass: Account [
 
 	"Constructor fot the Account class"
 	Account class [
-	    new[
-            ^super new init
-			"init: num customer: cust balance: bal [
-                number:=num.
-				customer:=cust.
-				balance:=bal
-			]"
-
-		    "account: num customer: cust balance: bal [ 
-                number:=num.
-				customer:=cust.
-				balance:=bal
-			]"
-		    "^super new init"
+	    new [
+            ^super new
 		]
+		"new: num customer: cust balance: bal [
+		    ^super new init: num customer: cust balance: bal
+	    ]"
 	]
 
-    newAccount: num customer: cust balance: bal [
+	"init: num balance: bal customer: cust [
         number:=num.
-		customer:=cust.
-		balance:=bal
-	]
-
-"
-    account: num customer: cust balance: bal [ 
-                number:=num.
-				customer:=cust.
-				balance:=bal
-	]"
-    "(accrue: rate)"
-
-	"Initialize variables"
-"	init: num customer: cust balance: bal [
-        number:=num.
-		customer:=cust.
-		balance:=bal
+		balance:=bal.
+		customer:=cust
 	]"
 
 	balance [
@@ -51,12 +27,10 @@ Object subclass: Account [
 
 	deposit: amount [
         balance:=balance+amount.
-		^balance
 	]
 
 	withdraw: amount [
         balance:=balance-amount.
-	    ^balance
 	]
 
 	accrue: rate [
@@ -64,9 +38,6 @@ Object subclass: Account [
 	]
 
 	asString [
-	    |retVal| 
-		retVal:=((number asString), ' : ', (customer asString), ' : ', (balance
-		asString)).
-		^retVal
+		^(number, ' : ', (customer asString), ' : ', (balance asString))
 	]
 ]
