@@ -2,23 +2,27 @@
 
 Object subclass: Bank [
     |accounts|
-	|i|
+	|index|
 
 	"new constructor for Bank class"
 	Bank class [
-        new [
+        "bank [
+		  init
+		  accounts:=#()
+		]"
+		new [
             ^super new init
 		]
 	]
 
 	init [
-          i:=0.
-		  accounts:=#()
+          index:=1.
+		  accounts:= Array new: 5
 	]
 
 	add: account [
-            accounts:=accounts at: i put: account.
-			i:=i+1
+            accounts at: index put: account.":=accounts+account.accounts at: index put: account."
+			index:=index+1
 	]
 
 	accrue: rate [
@@ -33,12 +37,13 @@ Object subclass: Bank [
 ]
 
 |bank| bank:=Bank new.
-|customer| customer:=(Customer customer: 'Ann') new.
-|checkingaccount| checking:=CheckingAccount (checkingAccount: '01001' customer:
-customer balance: 100.00) new.
-|savingsAccount| savings:=SavingsAccount (savingsAccount: '01002' customer:
-customer balance: 200.00) new.
-add: checkingaccount.
-add: savingsAccount.
-accrue: 0.02.
-asString printN1
+bank init.
+|customer| customer:=Customer newCustomer: 'Ann'.
+|checking| checking:=CheckingAccount new.
+(checking newChecking:'01001' customer: customer balance: 100.00).
+bank add: checking.
+|savings| savings:=SavingsAccount new.
+(savings newSavings:'01002' customer: customer balance: 200.00).
+bank add: savings.
+bank accrue: 0.02.
+asString printNl

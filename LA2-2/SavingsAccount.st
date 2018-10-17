@@ -4,23 +4,36 @@ Account subclass: SavingsAccount [
     |interest|
 
 	SavingsAccount class [
-        savingsAccount: num customer: cust balance: bal [
-            ^super new account: num customer: cust balance: bal
+        new [
+            ^super new init
+			": num customer: cust balance: bal"
 		]
+		
+		"new [
+            ^super new init
+		]"
+		"savingsAccount: num customer: cust balance: bal [
+            ^super new account: num customer: cust balance: bal
+		]"
+	]
+
+	newSavings: num customer: cust balance: bal [
+        super newAccount: num customer: cust balance: bal
 	]
 
 "	init [
         interest:=0.00
-	]
+	]"
 
-	SavingsAccount: number customer: customer balance: balance [
-        ^number:=number.
-		^customer:=customer.
-		^balance:=balance
+	"newAccount: num customer: cust balance: bal [
+        number:=num.
+		customer:=cust.
+		balance:=bal
 	]"
 
 	accrue: rate [
-        balance+=balance*rate.
-		interest+=balance*rate
+	    |bal|bal:=balance.
+        balance:=bal*rate.
+		interest:=balance*rate
 	]
 ]
