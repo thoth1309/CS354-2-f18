@@ -1,0 +1,71 @@
+********************************************************************************
+********************** Language Assignment #2: Smalltalk ***********************
+* Author: Jason Egbert
+* Date: 10/17/2018
+* Class: CS354-002-18
+
+* Description
+**********
+This project is a Smalltalk language port of a Java program which has the same
+functionality and naming conventions. This assignment was crafted to help us
+understand extreme object oriented languages by taking exisitng code from an
+already OO language with which we are already familiar (Java), and porting it into
+a much more OO language with which we are not already familiar (Smalltalk).
+
+* Running and Using
+**********
+In order to run this program enter the following command into the Bash console:
+```
+$ gst Customer.st Account.st CheckingAccount.st SavingsAccount.st Bank.st
+```
+
+The Bank.st class contains code which is ready to execute and which will provide
+some basic input to the program. That input will then be returned by the program
+to the console for user inpection.
+
+There is unit testing code in the Bank.st class as well which has been commented
+out. If you wish to run the code, simply remove the comment marks from either
+end of the line you wish to run. 
+
+In addition to the testing code in Bank.st, there is additional unit testing
+code in CheckingAccount.st, SavingsAccount.st, and Customer.st. These lines of
+code are also commented out. In order to run them, simply remove the comment
+marks at the beginning and the end of the desired block of code.
+
+For running a unit test on a specific source file, after the desired testing
+code is uncommented, run one of the following commands on the command line,
+depending upon which tests you wish to execute:
+```
+$ gst Customer.st Account.st CheckingAccount.st
+```
+or
+```
+$ gst Customer.st Account.st SavingsAccount.st
+```
+or
+```
+$ gst Customer.st
+```
+or, if you're feeling particularly ambitious
+```
+$ gst Customer.st Account.st CheckingAccount.st SavingsAccount.st
+```
+and the testing output will be printed to the console.
+
+* Testing
+**********
+This program was tested using relatively simple unit tests in the individual
+classes, and then by using similar testing methods within the class containing
+the driver methods. The Account.st class, in particular, was tested indirectly
+by testing the CheckingAccount.st and SavingsAccount.st classes, which rely
+strongly on the Account.st class and its methods, as they are children of the
+Account.st class.
+
+* Sources
+**********
+> Smalltalk-80: The Language and its Implementation by Adele Goldberg and David
+ 	Robson. pdf. provided in class materials.
+> Class slides and lecture notes
+> Provided example code from the class pub directory
+
+********************************************************************************
