@@ -22,8 +22,9 @@ Account subclass: CheckingAccount [
 (account asString) printNl.
 account accrue: 0.2.
 (account asString) printNl.
-|customer| customer:=Customer newCustomer:'Anne'.
-|account2| account2:=CheckingAccount new:'01003' customer: customer balance: 200.00.
+|cust| cust:=Customer new:'Anne'.
+(cust asString) printNl.
+|account2| account2:=CheckingAccount new:'01003' customer: cust asString balance: 200.00.
 (account2 asString) printNl.
 account2 accrue: 0.3.
 (account2 asString) printNl

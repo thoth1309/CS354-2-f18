@@ -4,12 +4,17 @@ Object subclass: Customer [
     |name|
 
 	Customer class [
-      
-		newCustomer: custName [
-            name:=custName
+		new: custName [
+            ^super new init: custName
 		]
+"		newCustomer: custName [
+            name:=custName
+		]"
 	]
 
+    init: custName [
+        name:=custName
+	]
 
 	asString [
         ^name
@@ -18,6 +23,7 @@ Object subclass: Customer [
 
 "testing code"
 "
-|customer| customer:=Customer newCustomer:'Ann'.
-(customer) printNl
+|customer| customer:=Customer new:'Ann'.
+(customer) printNl.
+(customer asString) printNl
 "
