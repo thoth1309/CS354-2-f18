@@ -28,4 +28,10 @@ Account subclass: SavingsAccount [
 |acount| account:= SavingsAccount new:'01002' customer:'anne' balance: 200.0.
 (account asString) printNl.
 account accrue: 0.2.
+(account asString) printNl.
+|cust| cust:=Customer new:'Annie'.
+(cust asString) printNl.
+|account2| account2:=SavingsAccount new:'01004' customer: cust balance: 401.00.
+(account asString) printNl.
+account accrue: 0.3.
 (account asString) printNl
