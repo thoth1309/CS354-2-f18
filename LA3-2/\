@@ -1,0 +1,34 @@
+#!/bin/gprolog --consult-file
+
+:- include('data.pl').
+
+% Your code goes here.
+
+/*checks to see which part of the day the hours are in*/
+isEarly(S1,S2) :- S1=am,S2=pm.
+isEarly(S1,S2) :- S1=am,S2=am.
+isEarly(S1,S2) :- S1=pm,S2=pm.
+
+/*checks to see which part of the day the hours are in*/
+isLate(S1,S2) :- S1=am,S2=am.
+isLate(S1,S2) :- S1=pm,S2=am.
+isLate(S1,S2) :- S1=pm,S2=pm.
+
+/* time one is before time 2*/
+isbefore(time(H1,M1,S1),time(H2,M2,S2)) :- H1<=H2, M1<M2, isEarly(S1,S2).
+
+/*time one is after time two*/
+isAfter(time(H1,M1,S1),time(H2,M2,S2)) :- H1>=H2, M1>M2, isLate(S1,S2).
+
+works(SlotInquire,Slot) :- SlotInquire(X,Y), Slot(Z,W), isBefore(X,Z), isAfter(Y,W).
+
+meetone(Person, Slot) :- X is free(_,SlotInquire), works(SlotInquire,Slot). 
+
+person(Person) :- free(Person,_).
+
+main :- findall(Person,
+		meetone(Person,slot(time(8,30,am),time(8,45,am))),
+		People),
+	write(People), nl, halt.
+
+:- initialization(main).
