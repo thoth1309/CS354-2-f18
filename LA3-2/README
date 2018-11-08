@@ -1,0 +1,57 @@
+********************************************************************************
+********************** Language Assignment #2: Smalltalk ***********************
+* Author: Jason Egbert
+* Date: 11/7/2018
+* Class: CS354-002-18
+
+* Description
+**********
+These programs are designed to perform two different, but related, functions.
+The first, meetone.pl is designed to take in a user specified time frame and
+return the names of all individuals who are available to meet during that time.
+The second file, meet.pl is designed to take the names of several individuals,
+and print the times which each of them is available to meet during. This program
+includes the following files:
+
+```
+uniq.pl
+data.pl
+meetone.pl
+meet.pl
+```
+of which meet.pl and meetone.pl both contain executable 'main' functions.
+
+
+* Running and Using
+**********
+In order to run this program, you must first ensure that the files meetone.pl
+and meet.pl are executable. If this needs to be done, or if you are unsure,
+enter the following commands into the bash console:
+```
+$ chmod +X meetone.pl
+$ chmod +X meet.pl
+```
+Both files are designed with a #! comment line at the beginning of the file
+which directs bash in the proper compilation and execution of the files.
+After ensuring that each of the files is marked as executable, simply select
+your desired file and enter one of the following commands into the bash console:
+```
+$ meetone.pl
+```
+or:
+```
+$ meet.pl
+```
+This will cause the selected program to run on the command line.
+
+* Testing
+**********
+Testing for these programs was performed largely on the command line using
+commands listed as testx: where x is the number of the test performed. These
+tests are inactive, but remain in the source file. All of the functions
+currently return the correct values. The meetone() test is the only test which
+is not currently producing correct values, resulting in instantiation errors
+when it should be returning the yes, though it does correctly return no when the
+individual's available meeting times do not correspond with the input time.
+
+********************************************************************************
