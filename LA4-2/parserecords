@@ -19,7 +19,7 @@ BEGIN {
 	print "</head>\n\n" >> "parseData.html"
 	print "<body>\n" >> "parseData.html"
 	print "<h1>Records</h1>\n\n" >> "parseData.html"
-	print "<table>\n" >> "parseData.html"
+	print "<table cellspacing="20">\n" >> "parseData.html"
 	print "<tr>\n" >> "parseData.html"
 	print "\t<td>DATE</td>\n" >> "parseData.html"
 	print "\t<td>SUBDIVISION</td>\n" >> "parseData.html"
