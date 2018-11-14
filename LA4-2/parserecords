@@ -1,0 +1,38 @@
+#!/bin/awk -f 
+
+# Awk program to read CSV data and parse out relevant real estate records
+# This particular program parses for single-family dwellings, saving the
+# relevant data in HTML, preserving only date, subdivision name, lot,
+# block, and value.
+
+function parse(file) {
+	
+
+
+}
+
+BEGIN {
+	FPAT = "([^,]+)|(\"[^\"]+\")"
+	#getline file < "./BldgPrmtsPublic10-01-2017To10-15-2017.csv"
+	print "<html>\n\n" > "parseData.html"
+	print "<head>\n" >> "parseData.html"
+	print "<title>Single Family Dwelling</title>\n" >> "parseData.html"
+	print "</head>\n\n" >> "parseData.html"
+	print "<body>\n" >> "parseData.html"
+	print "<h1>Records</h1>\n\n" >> "parseData.html"
+	print "<table>\n" >> "parseData.html"
+	print "<tr>\n" >> "parseData.html"
+
+}
+
+{
+	for (i=1; i<= NF; i++) {
+		printf("\t<td>%s</td>\n", $i) >> "parseData.html"
+	} 
+}
+{
+	print "</tr>\n" >> "parseData.html"
+	print "</table>\n\n" >> "parseData.html"
+	print "</body>\n" >> "parseData.html"
+	print "</html>" >> "parseData.html"
+}
