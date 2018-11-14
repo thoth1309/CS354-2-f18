@@ -19,7 +19,7 @@ BEGIN {
 	print "</head>\n\n" >> "parseData.html"
 	print "<body>\n" >> "parseData.html"
 	print "<h1>Records</h1>\n\n" >> "parseData.html"
-	print "<table cellspacing="50">\n" >> "parseData.html"
+	print "<table cellspacing="100">\n" >> "parseData.html"
 	print "<tr>\n" >> "parseData.html"
 	print "\t<td>DATE</td>\n" >> "parseData.html"
 	print "\t<td>SUBDIVISION</td>\n" >> "parseData.html"
@@ -38,7 +38,7 @@ BEGIN {
 # 1-date, 5-subdivision, 6-lot, 7-block, 8-value, print based on 3
 	
 
-	if(tolower($3) ~ /single family dwelling/) {
+	if(tolower($3) ~ /^single family dwelling$/) {
 		print "<tr>" >> "parseData.html"
 		for(i=1; i<= NF; i++) {
 			if(i==1) {
