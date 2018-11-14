@@ -12,7 +12,7 @@ function parse() {
 }
 
 BEGIN {
-	#getline file < "./BldgPrmtsPublic10-01-2017To10-15-2017.csv"
+	# Build the start of the HTML file
 	print "<html>\n\n" > "parseData.html"
 	print "<head>\n" >> "parseData.html"
 	print "<title>Single Family Dwelling</title>\n" >> "parseData.html"
@@ -27,20 +27,39 @@ BEGIN {
 	print "\t<td>BLOCK</td>\n" >> "parseData.html"
 	print "\t<td>VALUE</td>\n" >> "parseData.html"
 	print "</tr>\n" >> "parseData.html"
+#	print "<tr>" >> "parseData.html"
 
-	print "<tr>" >> "parseData.html"
-#	parse()
+	# define divisions between cells
 	FPAT = "([^,]+)|(\"[^\"]+\")"
 }
 
 {
 
 # 1-date, 5-subdivision, 6-lot, 7-block, 8-value, print based on 3
+	
 
-
-	for(i=1; i<=NF; i++) {
-
+	if(tolower($3) ~ /single family dwelling/) {
+		print "<tr>" >> "parseData.html"
+		for(i=1; i<= NF; i++) {
+			if(i==1) {
+				printf("\t<td>%s</td>\n", $i) >> "parseData.html"
+			}
+			if(i==5) {
+				printf("\t<td>%s</td>\n", $i) >> "parseData.html"
+			}
+			if(i==6) {
+				printf("\t<td>%s</td>\n", $i) >> "parseData.html"
+			}
+			if(i==7) {
+				printf("\t<td>%s</td>\n", $i) >> "parseData.html"
+			}
+			if(i==8) {
+				printf("\t<td>%s</td>\n", $i) >> "parseData.html"
+			}
+		}	
+		print "</tr>\n" >> "parseData.html"
 	}
+	
 
 #	for (i=1; i<= NF; i++) {
 #		if($i == 1) {
@@ -51,9 +70,9 @@ BEGIN {
 #	print "</td>\n\n" >> "parseData.html"
 
 }
-{
-	print "</tr>\n" >> "parseData.html"
+END {
+#	print "</tr>\n" >> "parseData.html"
 	print "</table>\n\n" >> "parseData.html"
 	print "</body>\n" >> "parseData.html"
-	print "</html>" >> "parseData.html"
+	print "</html>\n" >> "parseData.html"
 }
