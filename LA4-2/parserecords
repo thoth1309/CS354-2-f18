@@ -5,12 +5,6 @@
 # relevant data in HTML, preserving only date, subdivision name, lot,
 # block, and value.
 
-function parse() {
-
-	#$6 ~ /^single family dwelling$/ {printf("\t<td>%s</td>\n", $i)} >> "parseData.html"
-
-}
-
 BEGIN {
 	# Build the start of the HTML file
 	print "<html>\n\n" > "parseData.html"
