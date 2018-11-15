@@ -1,0 +1,80 @@
+LANGUAGE ASSIGNMENT 4 - AWK
+********************************************************************************
+* Author: Jason Egbert
+* Class: CS354 Section 2
+* Date: 11 November, 2018
+* Semester: Fall 2018
+*
+**********
+
+OVERVIEW
+********************************************************************************
+The program parserecords, and the program parserecords01, are AWK scripts
+which take in a file name from the command line, and then find that file to
+parse out relevant date. The input files must be csv (comma separated value)
+files, and should contain real estate records from Ada County, ID, circa
+<https://adacounty.id.gov/Development-Services/Building-Division/>, where
+records of building permits are maintained. Either program will parse through
+the csv file searching for single-family dwellings. When it finds a record of
+a building permit for a single-family dwelling (not including additions or
+modifications to said dwellings), it will glean the date of the permit, the
+name of the subdivision in which the permit was issued, the lot and block of
+the construction, and the value of the dwelling. Once the information has been
+parsed out of the file, it will be returned in the form of an .html file,
+which can be read in most browsers.
+
+COMPILING AND USING
+********************************************************************************
+This program (script) is composed of two separate and distinct files. Both
+opperate completely independently, and should be run alone, depending upon the
+desired output. Both files are should be marked as executable. If they are
+not, simply enter the following into the command line:
+```
+$ chmod +x parserecords
+```
+or
+```
+$ chmod +x parserecords01
+```
+This should make the file executable and enable it to run more easily from the
+command line.
+ 
+If a new .html file output is desired, the user should enter the following
+command into the command line:
+```
+$ parserecords <filename.csv>
+```
+where filename.csv is the name of the comma separated value input file.
+The output file will be named parseData.html.
+
+If the user should desire that the output be printed directly to the consol,
+or desires to reroute the output to a file of her/his own naming convention,
+enter the following into the command line instead:
+```
+$ parserecords01 <filename.csv>
+```	
+where filename.csv is the name of the comma separated value input file.
+The output from this version of the program will be returned directly to the
+screen through stdout.
+
+The returned output from these scripts can be opened and viewed in most
+internet browsers, including Chrome, Firefox, and others.
+
+TESTING
+********************************************************************************
+Testing for this program was conducted by running the program on the provided
+.csv file to determine what output was being produced. Once the desired output
+was found, the program was modified to output the data in html format so that
+the produced table could be viewed in a web browser.
+
+Further tests were performed by taking other data from the ada county website
+listed in the OVERVIEW section. The data from all files was compared visually
+to the output produced to determine whether or not the correct results were
+being output. 
+
+SOURCES
+********************************************************************************
+- The GNU Awk User's Guide: Chapter 4.7
+  <https://www.gnu.org/software/gqwk/manual/gawk.html>
+	- Utilized the regular expression for the FPAT function to define what
+	  a field *is*, to make parsing the file easier 
