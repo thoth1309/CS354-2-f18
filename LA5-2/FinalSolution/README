@@ -1,0 +1,167 @@
+LANGUAGE ASSIGNMENT 5 - C#
+********************************************************************************
+* Author: Jason Egbert
+* Class: CS354 Section 2
+* Date: 03 December, 2018
+* Semester: Fall 2018
+*
+**********
+
+OVERVIEW
+********************************************************************************
+This program creates a simple GUI which mimicks the function of a light
+switch, toggling on and off with each press of a button, while simultaneously
+counting the number of times the button has been toggled. This program was
+ported to C# from a provided Java program which performs the same function,
+and consists of the same class files.
+
+COMPILING AND USING
+********************************************************************************
+This program can be compiled and run from multiple systems. Linux
+(Specifically Boise State University's Distribution of CentOS with the C# mono
+copiler) compilation will be discussed here.
+
+This program contains multiple class files, and in order to run properly the
+source folder should contain:
+
+    - LightSwitch.cs    - Main driver class, and GUI constructor
+    - BinaryCounter.cs  - Binary counter constructor
+    - ToggleButton.cs   - Custom Button class
+    - README            - This file
+
+Once The above files have been confirmed present, to run this program on the
+specified Linux distribution, navigate to the source folder in a console, and
+enter the following into the command line:
+```
+$ mcs -r:System.Windows.Forms.dll \ 
+      -r:System.Drawing.dll \
+      LightSwitch.cs \
+      BinaryCounter.cs \ 
+      ToggleButton.cs
+```
+This will compile the source code into an executable binary file called
+LightSwitch.exe. This file is ready to run on a windows system, and merely
+needs to be transfered to the desired windows system to execute natively. To
+execute this program from the Linux distribution, after compiling enter the
+following into the command line:
+```
+$ mono LightSwitch.exe
+```
+As C# does not compile to a binary that a Linux system can natively translate,
+it is necessary to run the program with the above command.
+
+The output will be a small GUI window which contains a toggle button labeled
+"off", and a counter which starts at binary 0. As the button is pressed the
+label will toggle between the starting "off" and "on", to mimick a
+lightswitch. The counter will increment every time the button is pressed, but
+it will do so in binary, rather than in standard base 10 integers.
+
+Discussion
+********************************************************************************
+The process of porting a Java program to C# was interesting, to say the least.
+Understanding that the two languages are quite similar to each other (probably
+by design, but this is disputed by Microsoft), I believed that the process of
+porting one to the other would be quite simple. When all was said and done,
+this was, in fact, the case. However, what I did not anticipate was the
+difficulty of performing research to figure out exactly how to make the
+conversions from familiar Java syntax to the C# that I didn't yet understand
+fully. It was frustrating trying to find any useful documentation, as
+everything seemed to point toward the point-and-click GUI builder contained in
+Visual Studio. After turning to the book and the source material suggested by
+the assignment I was finally able to piece together the all too subtle
+differences between the two languages so that I could get the program
+functioning in the new language.
+
+Linguistic Comparison: Java and C#
+********************************************************************************
+The languages C# and Java are in so many ways very similar. The basic
+structure of the languages is virtually identical, and in many ways it would
+be difficult to tell simple programs written in the two languages apart. It is
+only when we start to explore more complicated concepts, like polymorphism,
+that things become visually different. 
+
+The first significant difference that I noticed in my research and porting
+involved polymorphism. Java's use of inheritance and abstract classes utilizes
+keywords (extends for inheritance, and implements for abstract), whereas C#
+forgoes the keywords in exchange for the colon (:), followed first by the
+parent class (if there is one), a comma, and then any abstract classes that
+are to be implemented. Java is clearer in this aspect, but C# is more concise
+in terms of code length. 
+
+The second significant difference that I noted as I ported to C# was the
+keyword for importing libraries. Java imports with the obvious keyword
+'import'. C# on the other hand uses the equally natural, and perhaps even more
+elegant 'using' to indicate that this particular file is going to be using
+this library's code. I also noticed that C# seemed to need a lot fewer
+imported libraries to perform the same functionality. 
+
+Another difference that I noticed was the application of calling super
+constructors. Java would perform this by calling super() within the
+constructor of the child class. C#, however, performs this function with a :
+base() call in the constructor line. This allows the constructor to directly
+access the parent's variables and methods, acknowledging that it is, in fact,
+a child of the parent class that was used to define the custom class. 
+
+The basic structure of the code was very similar between the two languages,
+both being object oriented in about equal measure, and both being capable of
+performing the same basic functions. I did feel that the construction of the
+GUI seemed to be significantly simpler in C# than in Java. It seemed to need
+fewer calls to the different imported libraries, and being much more direct
+about making a simple GUI. After this experience, I feel reasonably confident
+that I would much rather construct GUIs in C# than in Java, going forward.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
